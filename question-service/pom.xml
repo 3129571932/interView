@@ -6,7 +6,6 @@
         <groupId>com.hxc</groupId>
         <artifactId>interView</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.hxc.interView</groupId>
     <artifactId>question-service</artifactId>

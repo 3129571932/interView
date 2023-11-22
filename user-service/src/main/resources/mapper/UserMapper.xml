@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <!-- 写Sql语句 -->
+<mapper namespace="com.hxc.interview.userservice.dao.UserMapper">
+
+    <select id="getUserByCondition" resultType="user" parameterType="user">
+        select id, userName, gender, address, idNo, age, phone, registerDate, last_login_success_date, login_pwd_error_times, userStatus
+        from user
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="userName != null">
+                and userName = #{userName}
+            </if>
+            <if test="gender != null">
+                and gender = #{gender}
+            </if>
+            <if test="idNo != null">
+                and idNo = #{idNo}
+            </if>
+            <if test="age != null">
+                and age = #{age}
+            </if>
+            <if test="phone != null">
+                and phone = #{phone}
+            </if>
+        </where>
+    </select>
+
+</mapper>

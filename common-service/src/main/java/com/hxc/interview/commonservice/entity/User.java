@@ -1,6 +1,7 @@
 package com.hxc.interview.commonservice.entity;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.util.Date;
 
 public class User implements Serializable {
@@ -9,17 +10,19 @@ public class User implements Serializable {
     private String userName;
     private String gender;
     private String address;
-    private Integer idNo;
+    private String idNo;
     private Integer age;
-    private Integer phone;
+    private String phone;
     private Date registerDate;
     private Date last_login_success_date;
     private Integer login_pwd_error_times;
-    private boolean userStatus;
+    private Integer userStatus;
+    private String password;
+    private String salt;
 
     public User(){}
 
-    public User(Integer id, String userName, String gender, String address, Integer idNo, Integer age, Integer phone, Date registerDate, Date last_login_success_date, Integer login_pwd_error_times, boolean userStatus) {
+    public User(Integer id, String userName, String gender, String address, String idNo, Integer age, String phone, Date registerDate, Date last_login_success_date, Integer login_pwd_error_times, Integer userStatus, String password, String salt) {
         this.id = id;
         this.userName = userName;
         this.gender = gender;
@@ -31,6 +34,8 @@ public class User implements Serializable {
         this.last_login_success_date = last_login_success_date;
         this.login_pwd_error_times = login_pwd_error_times;
         this.userStatus = userStatus;
+        this.password = password;
+        this.salt = salt;
     }
 
     public Integer getId() {
@@ -65,11 +70,11 @@ public class User implements Serializable {
         this.address = address;
     }
 
-    public Integer getIdNo() {
+    public String getIdNo() {
         return idNo;
     }
 
-    public void setIdNo(Integer idNo) {
+    public void setIdNo(String idNo) {
         this.idNo = idNo;
     }
 
@@ -81,11 +86,11 @@ public class User implements Serializable {
         this.age = age;
     }
 
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -113,11 +118,23 @@ public class User implements Serializable {
         this.login_pwd_error_times = login_pwd_error_times;
     }
 
-    public boolean isUserStatus() {
+    public Integer getUserStatus() {
         return userStatus;
     }
 
-    public void setUserStatus(boolean userStatus) {
-        this.userStatus = userStatus;
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
     }
 }

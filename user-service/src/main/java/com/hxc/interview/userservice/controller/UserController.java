@@ -1,6 +1,7 @@
 package com.hxc.interview.userservice.controller;
 
 import com.hxc.interview.commonservice.entity.User;
+import com.hxc.interview.commonservice.result.ServiceResult;
 import com.hxc.interview.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,8 +14,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/getUserByCondition")
-    public Object getUserByCondition(@RequestBody User user) {
+    @GetMapping("getUserByCondition")
+    public ServiceResult getUserByCondition(@RequestBody User user) {
         return userService.getUserByCondition(user);
     }
 

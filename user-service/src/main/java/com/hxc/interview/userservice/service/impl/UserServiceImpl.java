@@ -23,6 +23,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ServiceResult addUser(User user) {
-        return null;
+        return ServiceResult.success(200, "success", null);
     }
 }

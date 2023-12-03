@@ -1,7 +1,7 @@
 package com.hxc.interview.userservice.service.impl;
 
-import com.hxc.interview.commonservice.entity.User;
-import com.hxc.interview.commonservice.result.ServiceResult;
+import com.hxc.interView.entity.User;
+import com.hxc.interView.result.ServiceResult;
 import com.hxc.interview.userservice.dao.UserMapper;
 import com.hxc.interview.userservice.service.UserService;
 import org.springframework.stereotype.Service;

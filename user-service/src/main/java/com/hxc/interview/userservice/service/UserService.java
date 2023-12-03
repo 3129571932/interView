@@ -1,7 +1,8 @@
 package com.hxc.interview.userservice.service;
 
-import com.hxc.interview.commonservice.entity.User;
-import com.hxc.interview.commonservice.result.ServiceResult;
+
+import com.hxc.interView.entity.User;
+import com.hxc.interView.result.ServiceResult;
 
 public interface UserService {
 

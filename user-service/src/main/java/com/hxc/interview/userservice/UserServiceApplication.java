@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@ComponentScan(value = "com.hxc.interView.aop")
 public class UserServiceApplication {
 
     public static void main(String[] args) {

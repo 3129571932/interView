@@ -1,4 +1,4 @@
-package com.hxc.interview.commonservice.aop;
+package com.hxc.interView.aop;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CheckParamAop {
 
-    @Pointcut("target(com.hxc.interview.userservice.controller)")
+    @Pointcut("target(com.hxc.interview.userservice.controller.UserController)")
     public void pointCut(){
 
     }

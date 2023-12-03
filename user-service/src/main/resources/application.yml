@@ -10,4 +10,4 @@ spring:
     password: Hxc980203@
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.hxc.interview.commonservice.entity
+  type-aliases-package: com.hxc.interView.entity

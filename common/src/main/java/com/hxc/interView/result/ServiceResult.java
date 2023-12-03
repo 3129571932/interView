@@ -1,4 +1,4 @@
-package com.hxc.interview.commonservice.result;
+package com.hxc.interView.result;
 
 public class ServiceResult {
 

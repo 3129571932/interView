@@ -17,7 +17,7 @@
   <modules>
     <module>user-service</module>
     <module>question-service</module>
-    <module>common-service</module>
+    <module>common</module>
   </modules>
 
   <dependencyManagement>

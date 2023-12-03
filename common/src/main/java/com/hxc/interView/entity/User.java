@@ -1,7 +1,6 @@
-package com.hxc.interview.commonservice.entity;
+package com.hxc.interView.entity;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.util.Date;
 
 public class User implements Serializable {

@@ -27,26 +27,33 @@ public class CheckParamAop {
     }
 
     @Around("ParamCheck()")
-    public void doBefore(ProceedingJoinPoint joinPoint) throws IllegalAccessException {
+    public Object doAround(ProceedingJoinPoint joinPoint) throws Throwable {
         Object[] args = joinPoint.getArgs();
         if (null == args || args.length == 0)
-            return;
+            return joinPoint.proceed();
         MethodSignature signature = (MethodSignature)joinPoint.getSignature();
         Method method = signature.getMethod();
         Annotation[][] parameterAnnotations = method.getParameterAnnotations();
         for (int i = 0; i < parameterAnnotations.length; i++) {
             Object obj = args[i];
             Annotation[] tmpAnno = parameterAnnotations[i];
-            if (null == tmpAnno || tmpAnno.length == 0)
+            if (null == tmpAnno)
                 continue;
             for (Annotation annotation : tmpAnno) {
                 if (annotation.annotationType().equals(CheckParam.class)) {
-                    checkParamCheck(obj, annotation);
+                    //参数校验处理流程
+                    boolean checkFlag = checkParamCheck(obj, annotation);
+                    if (checkFlag) {
+                        return joinPoint.proceed();
+                    } else {
+                        return null;
+                    }
                 } else {
                     continue;
                 }
             }
         }
+        return joinPoint.proceed();
     }
 
     public boolean checkParamCheck(Object param, Annotation anno) throws IllegalAccessException {

@@ -23,7 +23,7 @@ public class UserController {
     }
 
     @PostMapping("/addUser")
-    public ServiceResult addUser(@RequestBody @CheckParam User user) {
+    public ServiceResult addUser(@RequestBody @CheckParam(rule = "userName=NOTNULL,gender=NOTNULL,idNo=NOTNULL,phone=NOTNULL,password=NOTNULL,salt=NOTNULL") User user) {
         return userService.addUser(user);
     }
 

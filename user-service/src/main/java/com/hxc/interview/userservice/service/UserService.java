@@ -8,5 +8,5 @@ public interface UserService {
 
     ServiceResult getUserByCondition(User user);
 
-    ServiceResult addUser(User user);
+    ServiceResult addUser(User user) throws IllegalAccessException;
 }

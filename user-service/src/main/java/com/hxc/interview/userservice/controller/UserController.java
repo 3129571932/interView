@@ -23,7 +23,7 @@ public class UserController {
     }
 
     @PostMapping("/addUser")
-    public ServiceResult addUser(@RequestBody @CheckParam(rule = "userName=NOTNULL,gender=NOTNULL,idNo=NOTNULL,phone=NOTNULL,password=NOTNULL,salt=NOTNULL") User user) {
+    public ServiceResult addUser(@RequestBody @CheckParam(rule = "userName=NOTNULL,gender=NOTNULL,idNo=NOTNULL,idNo=ID_REG,phone=NOTNULL,phone=PHONE_REG,password=NOTNULL,key=NOTNULL,iv=NOTNULL,email=NOTNULL,email=EMAIL_REG") User user) throws IllegalAccessException {
         return userService.addUser(user);
     }
 

@@ -6,7 +6,7 @@
 <mapper namespace="com.hxc.interview.userservice.dao.UserMapper">
 
     <select id="getUserByCondition" resultType="user" parameterType="user">
-        select id, userName, gender, address, idNo, age, phone, registerDate, last_login_success_date, login_pwd_error_times, userStatus
+        select id, userName, gender, address, idNo, age, phone, registerDate, last_login_success_date, login_pwd_error_times, userStatus, password, key, iv
         from user
         <where>
             <if test="id != null">
@@ -29,5 +29,22 @@
             </if>
         </where>
     </select>
+
+    <select id="getUserByConditionForInsert" resultType="user" parameterType="java.util.Map">
+        select userName, idNo, email
+        from user
+        <where>
+            (userName = #{userName} and idNo = #{idNo} and email = #{email}) or
+            (userName = #{userName} or idNo = #{idNo} or email = #{email}) or
+            (userName = #{userName} and idNo = #{idNo}) or
+            (userName = #{userName} and email = #{email}) or
+            (idNo = #{idNo} and email = #{email})
+        </where>
+    </select>
+
+    <insert id="addUser" parameterType="user">
+        insert into user (userName, gender, address, idNo, age, phone, registerDate, userStatus, password, key, iv)
+        values (#{userName}, #{gender}, #{address}, #{idNo}, #{age}, #{phone}, #{registerDate}, #{userStatus}, #{password}, #{key}, #{iv})
+    </insert>
 
 </mapper>

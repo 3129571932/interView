@@ -1,6 +1,15 @@
 package com.hxc.interView.util;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 import java.lang.reflect.Field;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -50,7 +59,6 @@ public class CommonUtil {
      */
     public static boolean regCheck(String regName, String value) {
         String rex = "", rex_2 = "";
-        boolean resFlag = false;
         switch (regName) {
             case "PHONE_REG" :
                 rex = "^1([34578])\\d{9}$";
@@ -66,10 +74,53 @@ public class CommonUtil {
         Matcher matcher = pattern.matcher(value);
         if (regName.equals("ID_REG")) {
             //身份证一代二代都需要验证
+            boolean rs1 = matcher.find();
+            boolean rs2 = Pattern.compile(rex_2).matcher(value).find();
             return matcher.find() ? matcher.find() : Pattern.compile(rex_2).matcher(value).find();
         } else {
             return matcher.find();
         }
     }
 
+    /**
+     * AES(CBC) 加密
+     * @param data    待加密原文（byte）
+     * @param key     key
+     * @param iv      初始向量参数
+     * @return
+     * @throws NoSuchPaddingException
+     * @throws NoSuchAlgorithmException
+     * @throws InvalidAlgorithmParameterException
+     * @throws InvalidKeyException
+     * @throws IllegalBlockSizeException
+     * @throws BadPaddingException
+     */
+    public static byte[] encryptCBC(byte[] data, byte[] key, byte[] iv) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        cipher.init(Cipher.ENCRYPT_MODE, new SecretKeySpec(key, "AES"), new IvParameterSpec(iv));
+        byte[] result = cipher.doFinal(data);
+        return result;
+    }
+
+    /**
+     * AES(CBC) 解密
+     * @param data   密文
+     * @param key    key
+     * @param iv     初始向量
+     * @return
+     * @throws NoSuchPaddingException
+     * @throws NoSuchAlgorithmException
+     * @throws InvalidKeyException
+     * @throws BadPaddingException
+     * @throws IllegalBlockSizeException
+     * @throws InvalidAlgorithmParameterException
+     */
+    public static byte[] decryptCBC(byte[] data, byte[] key, byte[] iv) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, InvalidAlgorithmParameterException {
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        cipher.init(Cipher.DECRYPT_MODE, new SecretKeySpec(key, "AES"), new IvParameterSpec(iv));
+        byte[] result = cipher.doFinal(data);
+        return result;
+    }
+
 }
+

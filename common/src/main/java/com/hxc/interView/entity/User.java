@@ -17,11 +17,13 @@ public class User implements Serializable {
     private Integer login_pwd_error_times;
     private Integer userStatus;
     private String password;
-    private String salt;
+    private String key;
+    private String iv;
+    private String email;
 
     public User(){}
 
-    public User(Integer id, String userName, String gender, String address, String idNo, Integer age, String phone, Date registerDate, Date last_login_success_date, Integer login_pwd_error_times, Integer userStatus, String password, String salt) {
+    public User(Integer id, String userName, String gender, String address, String idNo, Integer age, String phone, Date registerDate, Date last_login_success_date, Integer login_pwd_error_times, Integer userStatus, String password, String key, String iv, String email) {
         this.id = id;
         this.userName = userName;
         this.gender = gender;
@@ -34,7 +36,9 @@ public class User implements Serializable {
         this.login_pwd_error_times = login_pwd_error_times;
         this.userStatus = userStatus;
         this.password = password;
-        this.salt = salt;
+        this.key = key;
+        this.iv = iv;
+        this.email = email;
     }
 
     public Integer getId() {
@@ -51,6 +55,14 @@ public class User implements Serializable {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getGender() {
@@ -129,11 +141,23 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public String getSalt() {
-        return salt;
+    public String getKey() {
+        return key;
     }
 
-    public void setSalt(String salt) {
-        this.salt = salt;
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public void setUserStatus(Integer userStatus) {
+        this.userStatus = userStatus;
+    }
+
+    public String getIv() {
+        return iv;
+    }
+
+    public void setIv(String iv) {
+        this.iv = iv;
     }
 }

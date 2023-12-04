@@ -1,6 +1,5 @@
 package com.hxc.interView.util;
 
-
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
@@ -70,19 +69,12 @@ public class CommonUtil {
                 rex = "^(.+)@(.+)$";
                 break;
             case "ID_REG" :
-                rex = "^[1-9]\\\\d{5}\\\\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\\\\d{3}$\n";
-                rex_2 = "^[1-9]\\\\d{5}(18|19|([23]\\\\d))\\\\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\\\\d{3}[0-9Xx]$";
+                rex = "(^[1-9]\\d{5}(18|19|20)\\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\\d{3}[0-9Xx]$)|" +
+                        "(^[1-9]\\d{5}\\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\\d{3}$)";
         }
         Pattern pattern = Pattern.compile(rex);
         Matcher matcher = pattern.matcher(value);
-        if (regName.equals("ID_REG")) {
-            //身份证一代二代都需要验证
-            boolean rs1 = matcher.find();
-            boolean rs2 = Pattern.compile(rex_2).matcher(value).find();
-            return matcher.find() ? matcher.find() : Pattern.compile(rex_2).matcher(value).find();
-        } else {
-            return matcher.find();
-        }
+        return matcher.find();
     }
 
     /**
@@ -105,16 +97,6 @@ public class CommonUtil {
         return result;
     }
 
-    public static void main(String[] args) throws InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException, UnsupportedEncodingException {
-        byte[] bytes = encryptCBC("hxc980203@".getBytes(), "123456qazwsxplmk".getBytes(), "123456qazwsxplmk".getBytes());
-        System.out.println(new String(bytes, "GBK"));
-
-
-        byte[] bytes2 = decryptCBC(bytes, "123456qazwsxplmk".getBytes(), "123456qazwsxplmk".getBytes());
-        System.out.println(Arrays.equals(bytes2, "hxc980203@".getBytes()));
-    }
-
-
     /**
      * AES(CBC) 解密
      * @param data   密文
@@ -135,5 +117,46 @@ public class CommonUtil {
         return result;
     }
 
-}
+    /**
+     * 二进制byte[] 转换成16进制
+     * @param buf
+     * @return
+     */
+    public static String parseByte2HexStr(byte buf[]) {
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < buf.length; i++) {
+            String hex = Integer.toHexString(buf[i] & 0xFF);
+            if (hex.length() == 1) {
+                hex = '0' + hex;
+            }
+            sb.append(hex.toUpperCase());
+        }
+        return sb.toString();
+    }
 
+    /**
+     * 16进制转换成byte[]二进制
+     * @param hexStr
+     * @return
+     */
+    public static byte[] parseHexStr2Byte(String hexStr) {
+        if (hexStr.length() < 1) {
+            return null;
+        }
+
+        byte[] result = new byte[hexStr.length() / 2];
+        for (int i = 0; i < hexStr.length() / 2; i++) {
+            int heigh = Integer.parseInt(hexStr.substring(i*2, i*2+1), 16);
+            int low = Integer.parseInt(hexStr.substring(i*2+1, i*2+2), 16);
+            result[i] = (byte) (heigh * 16 + low);
+        }
+        return result;
+    }
+
+    public static void main(String[] args) throws InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        byte[] bytes = encryptCBC("Hxc980203@".getBytes(), "qazwsxed87654321".getBytes(), "qazwsxed87654321".getBytes());
+        String result = parseByte2HexStr(bytes);
+        System.out.println(result);
+    }
+
+}

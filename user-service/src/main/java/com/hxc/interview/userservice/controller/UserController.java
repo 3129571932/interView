@@ -13,6 +13,7 @@ import javax.annotation.Resource;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
+import java.io.UnsupportedEncodingException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -34,7 +35,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ServiceResult login(@RequestBody @CheckParam(rule = "email=NOTNULL,email=EMAIL_REG,password=NOTNULL,key=NOTNULL,iv=NOTNULL") User user) throws InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+    public ServiceResult login(@RequestBody @CheckParam(rule = "email=NOTNULL,email=EMAIL_REG,password=NOTNULL,key=NOTNULL,iv=NOTNULL") User user) throws InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException, UnsupportedEncodingException {
         return userService.login(user);
     }
 

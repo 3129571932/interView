@@ -6,7 +6,7 @@
 <mapper namespace="com.hxc.interview.userservice.dao.UserMapper">
 
     <select id="getUserByCondition" resultType="user" parameterType="user">
-        select id, userName, gender, address, idNo, age, phone, registerDate, last_login_success_date, login_pwd_error_times, userStatus, password, `key`, iv
+        select id, userName, gender, address, idNo, age, phone, registerDate, last_login_success_date, login_pwd_error_times, userStatus, password, `key`, iv, email
         from user
         <where>
             <if test="id != null">
@@ -46,8 +46,39 @@
     </select>
 
     <insert id="addUser" parameterType="user">
-        insert into user (userName, gender, address, idNo, age, phone, registerDate, userStatus, password, key, iv)
-        values (#{userName}, #{gender}, #{address}, #{idNo}, #{age}, #{phone}, #{registerDate}, #{userStatus}, #{password}, #{key}, #{iv})
+        insert into user (userName, gender, address, idNo, age, phone, registerDate, userStatus, password, `key`, iv, email)
+        values (#{userName}, #{gender}, #{address}, #{idNo}, #{age}, #{phone}, #{registerDate}, 1, #{password}, #{key}, #{iv}, #{email})
     </insert>
+
+    <update id="updateUser" parameterType="java.util.Map">
+        update user
+        <set>
+            <if test="userName != null">
+                userName = #{userName},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="key != null">
+                `key` = #{key},
+            </if>
+            <if test="iv != null">
+                iv = #{iv},
+            </if>
+            <if test="email != null">
+                email = #{email},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="userStatus != null">
+                userStatus = #{userStatus},
+            </if>
+            <if test="login_pwd_error_times != null">
+                login_pwd_error_times = #{login_pwd_error_times},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
 
 </mapper>

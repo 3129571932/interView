@@ -2,6 +2,7 @@ package com.hxc.interView.aop;
 
 import com.hxc.interView.anno.CheckParam;
 import com.hxc.interView.entity.User;
+import com.hxc.interView.exception.BaseException;
 import com.hxc.interView.util.EntityParamCheck;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

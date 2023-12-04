@@ -1,6 +1,8 @@
 package com.hxc.interView.util;
 
 import com.hxc.interView.entity.User;
+import com.hxc.interView.exception.BaseException;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -38,7 +40,7 @@ public class EntityParamCheck {
                     break;
             }
             if (!returnFlag.get()) {
-                break;
+                throw new BaseException(next.getKey() + " value  is : " + tmpValue + " " + next.getValue() + " validate error", 400, objMap);
             }
         }
         return returnFlag.get();

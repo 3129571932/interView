@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/user-service/pom.xml" />
         <option value="$PROJECT_DIR$/question-service/pom.xml" />
         <option value="$PROJECT_DIR$/common-service/pom.xml" />
+        <option value="$PROJECT_DIR$/portal-service/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

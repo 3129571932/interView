@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.hxc.interview.userservice", "com.hxc.interView.aop"})
+@ComponentScan(basePackages = {"com.hxc.interview.userservice", "com.hxc.interView"})
 public class UserServiceApplication {
 
     public static void main(String[] args) {

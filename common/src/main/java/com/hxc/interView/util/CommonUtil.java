@@ -1,15 +1,18 @@
 package com.hxc.interView.util;
 
+
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -101,6 +104,16 @@ public class CommonUtil {
         byte[] result = cipher.doFinal(data);
         return result;
     }
+
+    public static void main(String[] args) throws InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException, UnsupportedEncodingException {
+        byte[] bytes = encryptCBC("hxc980203@".getBytes(), "123456qazwsxplmk".getBytes(), "123456qazwsxplmk".getBytes());
+        System.out.println(new String(bytes, "GBK"));
+
+
+        byte[] bytes2 = decryptCBC(bytes, "123456qazwsxplmk".getBytes(), "123456qazwsxplmk".getBytes());
+        System.out.println(Arrays.equals(bytes2, "hxc980203@".getBytes()));
+    }
+
 
     /**
      * AES(CBC) 解密

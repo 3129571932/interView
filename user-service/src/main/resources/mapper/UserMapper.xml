@@ -6,7 +6,7 @@
 <mapper namespace="com.hxc.interview.userservice.dao.UserMapper">
 
     <select id="getUserByCondition" resultType="user" parameterType="user">
-        select id, userName, gender, address, idNo, age, phone, registerDate, last_login_success_date, login_pwd_error_times, userStatus, password, key, iv
+        select id, userName, gender, address, idNo, age, phone, registerDate, last_login_success_date, login_pwd_error_times, userStatus, password, `key`, iv
         from user
         <where>
             <if test="id != null">
@@ -26,6 +26,9 @@
             </if>
             <if test="phone != null">
                 and phone = #{phone}
+            </if>
+            <if test="email != null">
+                and email = #{email}
             </if>
         </where>
     </select>

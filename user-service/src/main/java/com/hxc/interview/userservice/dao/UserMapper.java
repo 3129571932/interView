@@ -15,4 +15,6 @@ public interface UserMapper {
 
     void addUser(User user);
 
+    int updateUser(Map<String, Object> map);
+
 }

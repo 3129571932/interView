@@ -5,7 +5,7 @@ spring:
     name: user
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://139.198.191.54:3306/interView?characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://139.198.191.54:3306/interView?characterEncoding=utf8&serverTimezone=Asia/Shanghai&useAffectedRows=true
     username: root
     password: Hxc980203@
 mybatis:

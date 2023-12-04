@@ -10,6 +10,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 
 @RestController
 public class UserController {
@@ -25,6 +31,11 @@ public class UserController {
     @PostMapping("/addUser")
     public ServiceResult addUser(@RequestBody @CheckParam(rule = "userName=NOTNULL,gender=NOTNULL,idNo=NOTNULL,idNo=ID_REG,phone=NOTNULL,phone=PHONE_REG,password=NOTNULL,key=NOTNULL,iv=NOTNULL,email=NOTNULL,email=EMAIL_REG") User user) throws IllegalAccessException {
         return userService.addUser(user);
+    }
+
+    @PostMapping("/login")
+    public ServiceResult login(@RequestBody @CheckParam(rule = "email=NOTNULL,email=EMAIL_REG,password=NOTNULL,key=NOTNULL,iv=NOTNULL") User user) throws InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        return userService.login(user);
     }
 
 }

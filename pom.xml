@@ -19,6 +19,7 @@
     <module>question-service</module>
     <module>common</module>
     <module>portal-service</module>
+    <module>console-service</module>
   </modules>
 
   <dependencyManagement>

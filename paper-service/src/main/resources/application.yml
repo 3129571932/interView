@@ -1,0 +1,13 @@
+server:
+  port: 9091
+spring:
+  application:
+    name: paper
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://139.198.191.54:3306/interView?characterEncoding=utf8&serverTimezone=Asia/Shanghai&useAffectedRows=true
+    username: root
+    password: Hxc980203@
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.hxc.interView.entity

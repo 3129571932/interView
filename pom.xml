@@ -16,10 +16,10 @@
 
   <modules>
     <module>user-service</module>
-    <module>question-service</module>
     <module>common</module>
     <module>portal-service</module>
     <module>console-service</module>
+    <module>paper-service</module>
   </modules>
 
   <dependencyManagement>

@@ -1,10 +1,10 @@
-package com.hxc.interview.questionservice;
+package com.hxc.interview.paperservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class QuestionServiceApplicationTests {
+class PaperServiceApplicationTests {
 
     @Test
     void contextLoads() {

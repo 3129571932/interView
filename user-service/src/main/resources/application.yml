@@ -1,6 +1,9 @@
 server:
   port: 9090
 spring:
+  cloud:
+    nacos:
+      server-addr: 117.72.13.207:8848
   application:
     name: user
   datasource:

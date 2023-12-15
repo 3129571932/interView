@@ -1,9 +1,8 @@
-package com.hxc.interView.aop;
+package com.hxc.interView.common.aop;
 
-import com.hxc.interView.anno.CheckParam;
-import com.hxc.interView.entity.User;
-import com.hxc.interView.exception.BaseException;
-import com.hxc.interView.util.EntityParamCheck;
+import com.hxc.interView.common.anno.CheckParam;
+import com.hxc.interView.common.util.EntityParamCheck;
+import com.hxc.interView.common.entity.User;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -22,7 +21,7 @@ public class CheckParamAop {
     /**
      * 参数校验
      */
-    @Pointcut("execution(public * com.hxc.interview.userservice.controller.UserController.addUser(com.hxc.interView.entity.User))")
+    @Pointcut("execution(public * com.hxc.interview.userservice.controller.UserController.addUser(com.hxc.interView.common.entity.User))")
     public void ParamCheck(){
 
     }

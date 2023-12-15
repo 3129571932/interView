@@ -1,8 +1,8 @@
 package com.hxc.interview.userservice.service;
 
 
-import com.hxc.interView.entity.User;
-import com.hxc.interView.result.ServiceResult;
+import com.hxc.interView.common.entity.User;
+import com.hxc.interView.common.result.ServiceResult;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;

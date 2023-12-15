@@ -1,22 +1,20 @@
-package com.hxc.interView.util;
+package com.hxc.interView.common.util;
 
-import com.hxc.interView.entity.User;
-import com.hxc.interView.exception.BaseException;
+import com.hxc.interView.common.entity.User;
+import com.hxc.interView.common.exception.BaseException;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
-import static com.hxc.interView.util.CommonUtil.objectToMap;
-import static com.hxc.interView.util.CommonUtil.stringToMap;
 
 public class EntityParamCheck {
 
     public static boolean checkUser(User user, String rule) throws IllegalAccessException {
         if(null == user)
             return false;
-        HashMap<String, String> ruleMap = stringToMap(rule);
-        HashMap<String, Object> objMap = (HashMap<String, Object>) objectToMap(user);
+        HashMap<String, String> ruleMap = CommonUtil.stringToMap(rule);
+        HashMap<String, Object> objMap = (HashMap<String, Object>) CommonUtil.objectToMap(user);
         AtomicBoolean returnFlag = new AtomicBoolean(false);
         Iterator<Map.Entry<String, String>> iterator = ruleMap.entrySet().iterator();
         while(iterator.hasNext()) {

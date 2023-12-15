@@ -1,4 +1,4 @@
-package com.hxc.interView.util;
+package com.hxc.interView.common.util;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;

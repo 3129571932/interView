@@ -1,4 +1,4 @@
-package com.hxc.interView.exception;
+package com.hxc.interView.common.exception;
 
 public class BaseException extends RuntimeException{
 

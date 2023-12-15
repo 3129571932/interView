@@ -1,9 +1,9 @@
 package com.hxc.interview.userservice.controller;
 
 
-import com.hxc.interView.anno.CheckParam;
-import com.hxc.interView.entity.User;
-import com.hxc.interView.result.ServiceResult;
+import com.hxc.interView.common.anno.CheckParam;
+import com.hxc.interView.common.entity.User;
+import com.hxc.interView.common.result.ServiceResult;
 import com.hxc.interview.userservice.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

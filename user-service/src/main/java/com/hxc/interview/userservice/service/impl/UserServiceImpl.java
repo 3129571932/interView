@@ -1,8 +1,8 @@
 package com.hxc.interview.userservice.service.impl;
 
-import com.hxc.interView.entity.User;
-import com.hxc.interView.result.ServiceResult;
-import com.hxc.interView.util.CommonUtil;
+import com.hxc.interView.common.entity.User;
+import com.hxc.interView.common.result.ServiceResult;
+import com.hxc.interView.common.util.CommonUtil;
 import com.hxc.interview.userservice.dao.UserMapper;
 import com.hxc.interview.userservice.service.UserService;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,6 @@ import java.io.UnsupportedEncodingException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;

@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.hxc.interview.userservice", "com.hxc.interView"})
+@ComponentScan(basePackages = {"com.hxc.interview.userservice", "com.hxc.interView.common"})
 public class UserServiceApplication {
 
     public static void main(String[] args) {

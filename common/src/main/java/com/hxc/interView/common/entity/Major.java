@@ -1,4 +1,4 @@
-package com.hxc.interView.entity;
+package com.hxc.interView.common.entity;
 
 public class Major {
 

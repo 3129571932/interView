@@ -1,4 +1,4 @@
-package com.hxc.interView.anno;
+package com.hxc.interView.common.anno;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

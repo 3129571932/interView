@@ -1,4 +1,4 @@
-package com.hxc.interView.entity;
+package com.hxc.interView.common.entity;
 
 import java.io.Serializable;
 import java.util.Date;

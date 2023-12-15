@@ -1,6 +1,6 @@
 package com.hxc.interview.userservice.dao;
 
-import com.hxc.interView.entity.User;
+import com.hxc.interView.common.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

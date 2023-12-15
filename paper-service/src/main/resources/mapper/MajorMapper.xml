@@ -4,4 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 写Sql语句 -->
 <mapper namespace="com.hxc.interview.paperservice.dao.MajorMapper">
+
+    <select id="getAllMajors" resultType="major">
+        select majorId, majorName, status from major where status = 1
+    </select>
+
 </mapper>

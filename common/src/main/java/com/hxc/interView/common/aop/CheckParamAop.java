@@ -21,7 +21,7 @@ public class CheckParamAop {
     /**
      * 参数校验
      */
-    @Pointcut("execution(public * com.hxc.interview.userservice.controller.UserController.addUser(com.hxc.interView.common.entity.User))")
+    @Pointcut("execution(public * com.hxc.interview.*.controller.UserController.addUser(com.hxc.interView.common.entity.User))")
     public void ParamCheck(){
 
     }

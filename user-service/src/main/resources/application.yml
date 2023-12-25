@@ -1,6 +1,18 @@
 server:
   port: 9090
 spring:
+  redis:
+    database: 0
+    port: 6379
+    host: 60.205.114.49
+    password: Hxc980203#
+    jedis:
+      pool:
+        max-idle: 8
+        max-wait: 1000
+        max-active: 8
+        min-idle: 0
+    timeout: 3000
   cloud:
     nacos:
       server-addr: 117.72.13.207:8848

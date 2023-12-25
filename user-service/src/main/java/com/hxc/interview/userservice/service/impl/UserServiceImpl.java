@@ -3,6 +3,7 @@ package com.hxc.interview.userservice.service.impl;
 import com.hxc.interView.common.entity.User;
 import com.hxc.interView.common.result.ServiceResult;
 import com.hxc.interView.common.util.CommonUtil;
+import com.hxc.interView.common.util.RedisUtil;
 import com.hxc.interview.userservice.dao.UserMapper;
 import com.hxc.interview.userservice.service.UserService;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,9 @@ public class UserServiceImpl implements UserService {
 
     @Resource
     private UserMapper userMapper;
+
+    @Resource
+    private RedisUtil redisUtil;
 
     @Override
     public ServiceResult getUserByCondition(User user) {
@@ -116,7 +120,13 @@ public class UserServiceImpl implements UserService {
             if (row != 1) {
                 //更新失败，记录日志
             }
-            return isSuccess ? ServiceResult.success(code, msg, obj) : ServiceResult.error(code, msg, obj);
+            if (isSuccess) {
+                //登陆成功
+                return redisUtil.set(userByConditionRes.get(0).getEmail(), userByConditionRes.get(0), 1800) ? ServiceResult.success(code, msg, obj) : ServiceResult.error(code, msg, obj);
+            } else {
+                //登陆失败
+                return ServiceResult.error(code, msg, obj);
+            }
         } else {
             //没有找到或者有多个用户,都报错没有该用户
             return ServiceResult.error(400, "未找到该用户", user);

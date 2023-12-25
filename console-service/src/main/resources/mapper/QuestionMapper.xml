@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 写Sql语句 -->
-<mapper namespace="com.hxc.interview.paperservice.dao.QuestionMapper">
+<mapper namespace="com.hxc.interview.consoleservice.dao.QuestionMapper">
 
     <select id="getAllQuestions" resultType="question">
         select questionId, content, answer, majorId, courseId, chapterId, status from question where status = 1

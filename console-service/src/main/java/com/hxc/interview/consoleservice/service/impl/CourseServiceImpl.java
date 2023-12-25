@@ -1,9 +1,9 @@
-package com.hxc.interview.paperservice.service.impl;
+package com.hxc.interview.consoleservice.service.impl;
 
 import com.hxc.interView.common.entity.Course;
 import com.hxc.interView.common.result.ServiceResult;
-import com.hxc.interview.paperservice.dao.CourseMapper;
-import com.hxc.interview.paperservice.service.CourseService;
+import com.hxc.interview.consoleservice.dao.CourseMapper;
+import com.hxc.interview.consoleservice.service.CourseService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

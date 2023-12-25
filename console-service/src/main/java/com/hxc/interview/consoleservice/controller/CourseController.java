@@ -1,7 +1,7 @@
-package com.hxc.interview.paperservice.controller;
+package com.hxc.interview.consoleservice.controller;
 
 import com.hxc.interView.common.result.ServiceResult;
-import com.hxc.interview.paperservice.service.CourseService;
+import com.hxc.interview.consoleservice.service.CourseService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

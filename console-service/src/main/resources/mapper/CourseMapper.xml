@@ -3,10 +3,10 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 写Sql语句 -->
-<mapper namespace="com.hxc.interview.paperservice.dao.MajorMapper">
+<mapper namespace="com.hxc.interview.consoleservice.dao.CourseMapper">
 
-    <select id="getAllMajors" resultType="major">
-        select majorId, majorName, status from major where status = 1
+    <select id="getAllCourses" resultType="course">
+        select courseId, courseName, majorId, status from course where status = 1
     </select>
 
 </mapper>

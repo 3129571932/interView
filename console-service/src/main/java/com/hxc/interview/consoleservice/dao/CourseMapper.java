@@ -1,4 +1,4 @@
-package com.hxc.interview.paperservice.dao;
+package com.hxc.interview.consoleservice.dao;
 
 import com.hxc.interView.common.entity.Course;
 import org.apache.ibatis.annotations.Mapper;

@@ -1,0 +1,28 @@
+server:
+  port: 9092
+spring:
+  application:
+    name: console
+  redis:
+    database: 0
+    port: 6379
+    host: 60.205.114.49
+    password: Hxc980203#
+    jedis:
+      pool:
+        max-idle: 8
+        max-wait: 1000
+        max-active: 8
+        min-idle: 0
+    timeout: 3000
+  cloud:
+    nacos:
+      server-addr: 117.72.13.207:8848
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://139.198.191.54:3306/interView?characterEncoding=utf8&serverTimezone=Asia/Shanghai&useAffectedRows=true
+    username: root
+    password: Hxc980203@
+  mybatis:
+    mapper-locations: classpath:mapper/*.xml
+    type-aliases-package: com.hxc.interView.common.entity
